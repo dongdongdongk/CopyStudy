@@ -15,22 +15,22 @@ private String data;
 
 	//method
 	
-	public void init() {
+	public WeatherDTO[] init() {
 		
 		String [] datas = this.data.split(","); 
-		WeatherData [] datadiv = new WeatherData [datas.length/4];
+		WeatherDTO [] datadiv = new WeatherDTO [datas.length/4];
 		int idx = 0;
-		for(int i=0;i<data.length();i=i+4) {
+		for(int i=0;i<datas.length;i=i+4) {
 			WeatherDTO weatherDTO = new WeatherDTO();
 			weatherDTO.setCity(datas[i]);
 			weatherDTO.setGion(datas[i+1]);
 			weatherDTO.setStatus(datas[i+2]);
 			weatherDTO.setMise(datas[i+3]);
-			w
+			datadiv[idx] = weatherDTO;
 			idx++;
 		}
-		
+		System.out.println("초기화 완료");
+		return datadiv;
 	}
-
-
+	
 }

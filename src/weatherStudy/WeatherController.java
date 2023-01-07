@@ -14,7 +14,8 @@ public class WeatherController {
 		//5.지역날씨삭제
 		//6.종	 료
 	public void Start() {
-	
+		WeatherData weatherData = new WeatherData();
+		WeatherDTO weatherDTO = new WeatherDTO();
 		Scanner sc = new Scanner(System.in);		
 		System.out.println("1.날씨정보초기화");
 		System.out.println("2.전국날씨정보");
@@ -26,7 +27,8 @@ public class WeatherController {
 		int num = sc.nextInt();
 		switch(num) {
 		case 1:
-		
+			weatherData.init();
+			
 		}
 	
 	}
