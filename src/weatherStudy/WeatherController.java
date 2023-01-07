@@ -15,7 +15,10 @@ public class WeatherController {
 		//6.종	 료
 	public void Start() {
 		WeatherData weatherData = new WeatherData();
+		WeatherView weatherView = new WeatherView();
 		WeatherDTO weatherDTO = new WeatherDTO();
+		WeatherDTO [] datadiv = null;
+		boolean check = true;
 		Scanner sc = new Scanner(System.in);		
 		System.out.println("1.날씨정보초기화");
 		System.out.println("2.전국날씨정보");
@@ -24,13 +27,17 @@ public class WeatherController {
 		System.out.println("5.지역날씨삭제");
 		System.out.println("6.종료");
 		
-		int num = sc.nextInt();
-		switch(num) {
-		case 1:
-			weatherData.init();
-			
+		while(check) {
+			int num = sc.nextInt();
+			switch(num) {
+			case 1:
+				datadiv = weatherData.init();
+				break;
+			case 2:
+				weatherView.view(datadiv);
+				break;
+			}		
 		}
-	
 	}
 	
 	
