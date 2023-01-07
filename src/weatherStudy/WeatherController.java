@@ -21,15 +21,15 @@ public class WeatherController {
 		WeatherDTO [] datadiv = null;
 		boolean check = true;
 		Scanner sc = new Scanner(System.in);		
-		System.out.println("1.날씨정보초기화");
-		System.out.println("2.전국날씨정보");
-		System.out.println("3.지역날씨검색");
-		System.out.println("4.지역날씨추가");
-		System.out.println("5.지역날씨삭제");
-		System.out.println("6.종료");
+		datadiv = weatherData.init();
 		
 		while(check) {
-			datadiv = weatherData.init();
+			System.out.println("1.날씨정보초기화");
+			System.out.println("2.전국날씨정보");
+			System.out.println("3.지역날씨검색");
+			System.out.println("4.지역날씨추가");
+			System.out.println("5.지역날씨삭제");
+			System.out.println("6.종료");
 			int num = sc.nextInt();
 			switch(num) {
 			case 1:
@@ -46,9 +46,19 @@ public class WeatherController {
 				}else {
 					weatherView.view(weatherDTO);
 				}
+				break;
 			case 4:	
-				
-				
+				datadiv = weatherinput.add(datadiv);
+				System.out.println("추가완료");
+				break;
+			case 5:
+				datadiv = weatherinput.remove(datadiv);
+				System.out.println("삭제완료");
+				break;
+			default:
+				System.out.println("종료합니다");
+				check = false;
+				break;
 			}		
 		}
 	}

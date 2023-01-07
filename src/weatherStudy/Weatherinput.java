@@ -28,6 +28,7 @@ public class Weatherinput {
 	public WeatherDTO[] add(WeatherDTO[] datadiv) {
 		WeatherDTO [] wetherDTO2 = new WeatherDTO[datadiv.length+1];
 		System.arraycopy(datadiv, 0, wetherDTO2, 0, datadiv.length);
+		Scanner sc = new Scanner(System.in);
 		WeatherDTO weatherDTO = new WeatherDTO();
 		System.out.println("도시 입력");
 		weatherDTO.setCity(sc.next());
@@ -39,13 +40,26 @@ public class Weatherinput {
 		weatherDTO.setMise(sc.next());
 		wetherDTO2[datadiv.length] = weatherDTO;
 		datadiv = wetherDTO2;
-		return datadiv;
-		
-			
-		}
+		return datadiv;	
 	}
-	
 	//remove
-		//배열을 받고, 키보드로부터 삭제할 도시명을 입력 받음
-		//배열에서 삭제하고 배열을 리턴
+	//배열을 받고, 키보드로부터 삭제할 도시명을 입력 받음
+	//배열에서 삭제하고 배열을 리턴
+	public WeatherDTO[] remove(WeatherDTO[] datadiv) {
+		WeatherDTO [] removeDTO = new WeatherDTO[datadiv.length-1];
+		System.out.println("삭제할 지역을 입력");
+		String city = sc.next();
+		int idx = 0;
+		for(int i=0;i<datadiv.length;i++) {
+			if(datadiv[i].getCity().toLowerCase().equals(city.toLowerCase())) {
+				continue;
+			}
+			removeDTO[idx] = datadiv[i];
+			idx++;
+		}
+		datadiv = removeDTO;
+		return datadiv;
+	}
+}
+	
 
