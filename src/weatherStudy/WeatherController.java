@@ -17,6 +17,7 @@ public class WeatherController {
 		WeatherData weatherData = new WeatherData();
 		WeatherView weatherView = new WeatherView();
 		WeatherDTO weatherDTO = new WeatherDTO();
+		Weatherinput weatherinput = new Weatherinput();
 		WeatherDTO [] datadiv = null;
 		boolean check = true;
 		Scanner sc = new Scanner(System.in);		
@@ -28,14 +29,24 @@ public class WeatherController {
 		System.out.println("6.종료");
 		
 		while(check) {
+			datadiv = weatherData.init();
 			int num = sc.nextInt();
 			switch(num) {
 			case 1:
 				datadiv = weatherData.init();
+				System.out.println("초기화 완료");
 				break;
 			case 2:
 				weatherView.view(datadiv);
 				break;
+			case 3:
+				weatherDTO = weatherinput.search(datadiv);
+				if(weatherDTO==null) {
+					System.out.println("지역이 없습니다.");
+				}else {
+					weatherView.view(weatherDTO);
+				}
+				
 			}		
 		}
 	}

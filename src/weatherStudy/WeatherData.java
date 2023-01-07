@@ -29,7 +29,6 @@ private String data;
 			datadiv[idx] = weatherDTO;
 			idx++;
 		}
-		System.out.println("초기화 완료");
 		return datadiv;
 	}
 	
