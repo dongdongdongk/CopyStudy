@@ -25,8 +25,21 @@ public class Weatherinput {
 	//add
 		//배열을 받고, 키보드로부터 정보들을 입력 받음
 		//배열에 추가하고 배열을 리턴
-	public void add(WeatherDTO[] datadiv) {
+	public WeatherDTO[] add(WeatherDTO[] datadiv) {
 		WeatherDTO [] wetherDTO2 = new WeatherDTO[datadiv.length+1];
+		System.arraycopy(datadiv, 0, wetherDTO2, 0, datadiv.length);
+		WeatherDTO weatherDTO = new WeatherDTO();
+		System.out.println("도시 입력");
+		weatherDTO.setCity(sc.next());
+		System.out.println("기온 입력");
+		weatherDTO.setGion(sc.next());
+		System.out.println("날씨 입력");
+		weatherDTO.setStatus(sc.next());
+		System.out.println("미세먼지 입력");
+		weatherDTO.setMise(sc.next());
+		wetherDTO2[datadiv.length] = weatherDTO;
+		datadiv = wetherDTO2;
+		return datadiv;
 		
 			
 		}
@@ -35,4 +48,4 @@ public class Weatherinput {
 	//remove
 		//배열을 받고, 키보드로부터 삭제할 도시명을 입력 받음
 		//배열에서 삭제하고 배열을 리턴
-}
+

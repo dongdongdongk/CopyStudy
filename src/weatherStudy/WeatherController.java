@@ -46,6 +46,8 @@ public class WeatherController {
 				}else {
 					weatherView.view(weatherDTO);
 				}
+			case 4:	
+				
 				
 			}		
 		}
